@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Change++ 2022</title>
+</head>
+
+<body>
+  <h3>Guess Song</h3>
+  <p></p>Given a lyric from a Taylor Swift song, guess which song the lyric
+  originates from.</p>
+
+
+  Song name: <input type="text" id="song-name" style="width: 240px" /> <button type="button" onclick="guess()"
+    id="guess">
+    guess</button><span id="guess-result" style="color: red; width: 60px; display: inline-block"> </span>total result: <span id="guess-right">0</span> right, <span id="guess-wrong">0</span> wrong
+  <p />
+  <button type="button" id="btnGetLyric">get another song</button><br />
+
+  <div
+    style="overflow-y: auto; overflow-x: auto; width: 600px; height: 320px; font-size: 14px; background-color: bisque;">
+    <span id="taylor-lyric"></span>
+  </div>
+
+  <p style="font-size: 12px">
+    Powered by Electron
+    <span id="electron-version" style="color: blue"></span>, Chromium
+    <span id="chrome-version" style="color: blue"></span>, Node.js
+    <span id="node-version" style="color: blue"></span>, and V8
+    <span id="v8-version" style="color: blue"></span>.
+  </p>
+  <!-- Adding Individual Renderer
+     Process JS File -->
+  <script>
+    var countRight = 0
+    var countWrong = 0
+    function guess() {
+      var name = document.getElementById("song-name").value
+      console.log(songname);
+
+      if (songname.trim().toLowerCase() == name.trim().toLowerCase()) {
+        document.getElementById("guess-result").innerText = " right"
+        document.getElementById("guess-right").innerText = ++countRight
+      }
+      else {
+        document.getElementById("guess-result").innerText = " wrong"
+        document.getElementById("guess-wrong").innerText = ++countWrong
+      }
+
+    }
+
+  </script>
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
